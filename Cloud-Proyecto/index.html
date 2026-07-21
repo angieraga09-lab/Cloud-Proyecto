@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataformas de Despliegue Cloud</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <h1>Plataformas de Despliegue (Cloud)</h1>
+
+        <p>
+            Este proyecto puede desplegarse fácilmente en
+            <strong>Vercel</strong> o <strong>Netlify</strong>.
+        </p>
+
+        <hr>
+
+        <h2>Calculadora</h2>
+
+        <input type="number" id="num1" placeholder="Número 1">
+
+        <input type="number" id="num2" placeholder="Número 2">
+
+        <br><br>
+
+        <button onclick="sumar()">
+            Sumar
+        </button>
+
+        <h3 id="resultado"></h3>
+
+        <hr>
+
+        <h2>Contador</h2>
+
+        <h1 id="contador">0</h1>
+
+        <button onclick="aumentar()">
+            Aumentar
+        </button>
+
+        <button onclick="disminuir()">
+            Disminuir
+        </button>
+
+        <hr>
+
+        <h2>Fecha y Hora</h2>
+
+        <button onclick="mostrarFecha()">
+            Mostrar Fecha
+        </button>
+
+        <p id="fecha"></p>
+
+        <hr>
+
+        <h2>Formulario</h2>
+
+        <input type="text" id="nombre" placeholder="Ingrese su nombre">
+
+        <button onclick="saludar()">
+            Saludar
+        </button>
+
+        <h3 id="saludo"></h3>
+
+    </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
