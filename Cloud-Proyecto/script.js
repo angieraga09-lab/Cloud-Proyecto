@@ -1,48 +1,42 @@
-function sumar(){
+function registrar(){
 
-    let n1 = Number(document.getElementById("num1").value);
+    let nombre=document.getElementById("nombre").value;
+    let apellido=document.getElementById("apellido").value;
+    let edad=document.getElementById("edad").value;
+    let carrera=document.getElementById("carrera").value;
 
-    let n2 = Number(document.getElementById("num2").value);
+    if(nombre=="" || apellido=="" || edad=="" || carrera==""){
 
-    let resultado = n1 + n2;
+        alert("Debe completar todos los campos.");
 
-    document.getElementById("resultado").innerHTML =
-    "Resultado: " + resultado;
+        return;
 
-}
+    }
 
-let contador = 0;
+    let tabla=document.getElementById("tablaEstudiantes");
 
-function aumentar(){
+    let fila=tabla.insertRow();
 
-    contador++;
+    fila.insertCell(0).innerHTML=nombre;
+    fila.insertCell(1).innerHTML=apellido;
+    fila.insertCell(2).innerHTML=edad;
+    fila.insertCell(3).innerHTML=carrera;
 
-    document.getElementById("contador").innerHTML = contador;
+    let accion=fila.insertCell(4);
 
-}
+    accion.innerHTML="<button class='eliminar' onclick='eliminar(this)'>Eliminar</button>";
 
-function disminuir(){
-
-    contador--;
-
-    document.getElementById("contador").innerHTML = contador;
-
-}
-
-function mostrarFecha(){
-
-    let fecha = new Date();
-
-    document.getElementById("fecha").innerHTML =
-    fecha.toLocaleString();
+    document.getElementById("nombre").value="";
+    document.getElementById("apellido").value="";
+    document.getElementById("edad").value="";
+    document.getElementById("carrera").value="";
 
 }
 
-function saludar(){
+function eliminar(boton){
 
-    let nombre = document.getElementById("nombre").value;
+    let fila=boton.parentNode.parentNode;
 
-    document.getElementById("saludo").innerHTML =
-    "Bienvenido " + nombre +"
+    fila.remove();
 
 }
