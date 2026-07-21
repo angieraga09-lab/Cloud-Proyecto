@@ -43,6 +43,6 @@ function saludar(){
     let nombre = document.getElementById("nombre").value;
 
     document.getElementById("saludo").innerHTML =
-    "Bienvenido " + nombre + ". Tu proyecto está listo para desplegarse en Vercel o Netlify.";
+    "Bienvenido " + nombre +"
 
 }
