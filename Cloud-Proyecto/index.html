@@ -2,185 +2,258 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestión de Productos</title>
+
+    <title>Sistema de Gestión de Biblioteca</title>
 
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-    <!-- ENCABEZADO -->
+<header>
 
-    <header>
+    <div class="logo">
 
-        <div class="logo">
-            <h1>📦 ProductManager Pro</h1>
-        </div>
+        <h1>📚 Biblioteca Virtual</h1>
 
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Inventario</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Reportes</a></li>
-            </ul>
-        </nav>
+        <p>Sistema de Administración de Libros</p>
 
-    </header>
+    </div>
 
-    <!-- CONTENEDOR PRINCIPAL -->
+    <nav>
 
-    <main class="contenedor">
+        <ul>
 
-        <section class="card">
+            <li><a href="#">Inicio</a></li>
 
-            <h2>Registrar Producto</h2>
+            <li><a href="#">Libros</a></li>
 
-            <div class="grupo">
+            <li><a href="#">Préstamos</a></li>
 
-                <label>Nombre del Producto</label>
+            <li><a href="#">Reportes</a></li>
 
-                <input
-                    type="text"
-                    id="producto"
-                    placeholder="Ingrese el nombre del producto">
+        </ul>
 
-            </div>
+    </nav>
 
-            <div class="grupo">
+</header>
 
-                <label>Precio</label>
+<main class="contenedor">
 
-                <input
-                    type="number"
-                    id="precio"
-                    placeholder="Ingrese el precio">
+<section class="cards">
 
-            </div>
+<div class="card">
 
-            <div class="grupo">
+<h3>Total de Libros</h3>
 
-                <label>Cantidad</label>
+<h2 id="totalLibros">0</h2>
 
-                <input
-                    type="number"
-                    id="cantidad"
-                    placeholder="Ingrese la cantidad">
+</div>
 
-            </div>
+<div class="card">
 
-            <div class="grupo">
+<h3>Disponibles</h3>
 
-                <label>Categoría</label>
+<h2 id="librosDisponibles">0</h2>
 
-                <select id="categoria">
+</div>
 
-                    <option value="">Seleccione</option>
+<div class="card">
 
-                    <option>Tecnología</option>
+<h3>Prestados</h3>
 
-                    <option>Hogar</option>
+<h2 id="librosPrestados">0</h2>
 
-                    <option>Oficina</option>
+</div>
 
-                    <option>Accesorios</option>
+</section>
 
-                </select>
+<section class="formulario">
 
-            </div>
+<h2>Registrar Libro</h2>
 
-            <div class="botones">
+<form id="formLibro">
 
-                <button class="btn-guardar" onclick="agregarProducto()">
-                    Guardar Producto
-                </button>
+<div class="grupo">
 
-                <button class="btn-limpiar" onclick="limpiarFormulario()">
-                    Limpiar
-                </button>
+<label>Título del Libro</label>
 
-            </div>
+<input
+type="text"
+id="titulo"
+placeholder="Ingrese el título">
 
-        </section>
+</div>
 
-        <!-- RESUMEN -->
+<div class="grupo">
 
-        <section class="estadisticas">
+<label>Autor</label>
 
-            <div class="box">
-                <h3 id="cantidadProductos">0</h3>
-                <p>Productos Registrados</p>
-            </div>
+<input
+type="text"
+id="autor"
+placeholder="Ingrese el autor">
 
-            <div class="box">
-                <h3 id="valorInventario">$0</h3>
-                <p>Valor del Inventario</p>
-            </div>
+</div>
 
-        </section>
+<div class="grupo">
 
-        <!-- BUSCADOR -->
+<label>Categoría</label>
 
-        <section class="busqueda">
+<select id="categoria">
 
-            <input
-                type="text"
-                id="buscar"
-                placeholder="Buscar producto..."
-                onkeyup="buscarProducto()">
+<option value="">Seleccione</option>
 
-        </section>
+<option>Novela</option>
 
-        <!-- TABLA -->
+<option>Ciencia</option>
 
-        <section class="tabla-contenedor">
+<option>Tecnología</option>
 
-            <table>
+<option>Historia</option>
 
-                <thead>
+<option>Educación</option>
 
-                    <tr>
+<option>Programación</option>
 
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Categoría</th>
-                        <th>Total</th>
-                        <th>Acciones</th>
+</select>
 
-                    </tr>
+</div>
 
-                </thead>
+<div class="grupo">
 
-                <tbody id="tablaProductos">
+<label>Año de Publicación</label>
 
-                </tbody>
+<input
+type="number"
+id="anio"
+placeholder="Ejemplo: 2025">
 
-            </table>
+</div>
 
-        </section>
+<div class="grupo">
 
-    </main>
+<label>Estado</label>
 
-    <footer>
+<select id="estado">
 
-        <p>
-            Sistema de Gestión de Productos - Desarrollado con HTML, CSS y JavaScript
-        </p>
+<option value="">Seleccione</option>
 
-    </footer>
+<option>Disponible</option>
 
-    <script src="script.js"></script>
+<option>Prestado</option>
+
+</select>
+
+</div>
+
+<div class="botones">
+
+<button
+type="button"
+onclick="agregarLibro()">
+
+Registrar Libro
+
+</button>
+
+<button type="reset">
+
+Limpiar
+
+</button>
+
+</div>
+
+</form>
+
+</section>
+<!-- ===========================
+     BUSCADOR
+=========================== -->
+
+<section class="buscador">
+
+    <h2>Buscar Libro</h2>
+
+    <input
+        type="text"
+        id="buscar"
+        placeholder="Buscar por título o autor..."
+        onkeyup="buscarLibro()">
+
+</section>
+
+<!-- ===========================
+     TABLA
+=========================== -->
+
+<section class="tabla">
+
+    <h2>Listado de Libros</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Título</th>
+
+                <th>Autor</th>
+
+                <th>Categoría</th>
+
+                <th>Año</th>
+
+                <th>Estado</th>
+
+                <th>Acciones</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="tablaLibros">
+
+        </tbody>
+
+    </table>
+
+</section>
+
+</main>
+
+<!-- ===========================
+     FOOTER
+=========================== -->
+
+<footer>
+
+    <p>
+
+        © 2026 Biblioteca Virtual |
+        Desarrollado con HTML, CSS y JavaScript
+
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 
 </html>
-
-  
-
-    
