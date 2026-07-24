@@ -1,54 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Estudiantes</title>
+    <title>Sistema de Gestión de Productos</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<div class="contenedor">
+    <!-- ENCABEZADO -->
 
-    <h1>Registro de Estudiantes</h1>
+    <header>
 
-    <input type="text" id="nombre" placeholder="Nombre">
+        <div class="logo">
+            <h1>📦 ProductManager Pro</h1>
+        </div>
 
-    <input type="text" id="apellido" placeholder="Apellido">
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Inventario</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Reportes</a></li>
+            </ul>
+        </nav>
 
-    <input type="number" id="edad" placeholder="Edad">
+    </header>
 
-    <input type="text" id="carrera" placeholder="Carrera">
+    <!-- CONTENEDOR PRINCIPAL -->
 
-    <button onclick="registrar()">
-        Registrar Estudiante
-    </button>
+    <main class="contenedor">
 
-    <table>
+        <section class="card">
 
-        <thead>
+            <h2>Registrar Producto</h2>
 
-            <tr>
+            <div class="grupo">
 
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Edad</th>
-                <th>Carrera</th>
-                <th>Acción</th>
+                <label>Nombre del Producto</label>
 
-            </tr>
+                <input
+                    type="text"
+                    id="producto"
+                    placeholder="Ingrese el nombre del producto">
 
-        </thead>
+            </div>
 
-        <tbody id="tablaEstudiantes">
+            <div class="grupo">
 
-        </tbody>
+                <label>Precio</label>
 
-    </table>
+                <input
+                    type="number"
+                    id="precio"
+                    placeholder="Ingrese el precio">
 
-</div>
+            </div>
 
-<script src="script.js"></script>
+            <div class="grupo">
+
+                <label>Cantidad</label>
+
+                <input
+                    type="number"
+                    id="cantidad"
+                    placeholder="Ingrese la cantidad">
+
+            </div>
+
+            <div class="grupo">
+
+                <label>Categoría</label>
+
+                <select id="categoria">
+
+                    <option value="">Seleccione</option>
+
+                    <option>Tecnología</option>
+
+                    <option>Hogar</option>
+
+                    <option>Oficina</option>
+
+                    <option>Accesorios</option>
+
+                </select>
+
+            </div>
+
+            <div class="botones">
+
+                <button class="btn-guardar" onclick="agregarProducto()">
+                    Guardar Producto
+                </button>
+
+                <button class="btn-limpiar" onclick="limpiarFormulario()">
+                    Limpiar
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- RESUMEN -->
+
+        <section class="estadisticas">
+
+            <div class="box">
+                <h3 id="cantidadProductos">0</h3>
+                <p>Productos Registrados</p>
+            </div>
+
+            <div class="box">
+                <h3 id="valorInventario">$0</h3>
+                <p>Valor del Inventario</p>
+            </div>
+
+        </section>
+
+        <!-- BUSCADOR -->
+
+        <section class="busqueda">
+
+            <input
+                type="text"
+                id="buscar"
+                placeholder="Buscar producto..."
+                onkeyup="buscarProducto()">
+
+        </section>
+
+        <!-- TABLA -->
+
+        <section class="tabla-contenedor">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Categoría</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaProductos">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            Sistema de Gestión de Productos - Desarrollado con HTML, CSS y JavaScript
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
+
+  
+
+    
